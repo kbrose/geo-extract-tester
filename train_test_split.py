@@ -1,7 +1,7 @@
 """
 Typically run as
 
-python train_test_split.py validation.txt training.txt ../cjp-article-tagging/lib
+python train_test_split.py data/validation.txt data/training.txt ../cjp-article-tagging/lib
 """
 
 import sys
