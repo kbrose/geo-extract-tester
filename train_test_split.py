@@ -23,6 +23,10 @@ def create_parser():
 def main(validation_out_file, training_out_file):
     df = tagnews.load_data()
     df = df.loc[df['locations'].apply(bool), :]
+    training_article_count = 0
+    training_location_count = 0
+    validation_article_count = 0
+    validation_location_count = 0
     with open(validation_out_file, 'w', encoding='utf-8') as valid_f:
         with open(training_out_file, 'w', encoding='utf-8') as training_f:
             for idx, row in df.iterrows():
@@ -57,8 +61,17 @@ def main(validation_out_file, training_out_file):
                 s += '\n'
                 if idx % 2: # split half and half
                     training_f.write(s)
+                    training_article_count += 1
+                    training_location_count += len(spans)
                 else:
                     valid_f.write(s)
+                    validation_article_count += 1
+                    validation_location_count += 1
+                    
+    print('Found {} articles for training'.format(training_article_count))
+    print('Found {} locations for training'.format(training_location_count))
+    print('Found {} articles for validaiton'.format(validation_article_count))
+    print('Found {} locations for validation'.format(validation_location_count))
 
 if __name__ == '__main__':
     parser = create_parser()
