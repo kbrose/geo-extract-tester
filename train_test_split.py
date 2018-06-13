@@ -66,7 +66,7 @@ def main(validation_out_file, training_out_file):
                 else:
                     valid_f.write(s)
                     validation_article_count += 1
-                    validation_location_count += 1
+                    validation_location_count += len(spans)
                     
     print('Found {} articles for training'.format(training_article_count))
     print('Found {} locations for training'.format(training_location_count))
