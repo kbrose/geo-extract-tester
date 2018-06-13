@@ -70,7 +70,7 @@ def main(validation_out_file, training_out_file):
 
     print('Found {} articles for training'.format(training_article_count))
     print('Found {} locations for training'.format(training_location_count))
-    print('Found {} articles for validaiton'.format(validation_article_count))
+    print('Found {} articles for validation'.format(validation_article_count))
     print('Found {} locations for validation'.format(validation_location_count))
 
 if __name__ == '__main__':
